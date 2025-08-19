@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fin de resicencia COT MS</title>
+  <meta name="description" content="Progreso desde el 20/07/2021 hasta el 20/07/2026, con foco en la barra y el contador restante." />
+  <style>
+    :root{
+      --bg: #f7f9fc;
+      --card: #ffffff;
+      --ink: #0f172a;
+      --muted: #64748b;
+      --border: #e5e9f2;
+      --accent-a: #7aa2ff;
+      --accent-b: #a0e9e5;
+      --accent-c: #78d69e;
+      --chip-bg: #eef4ff;
+      --chip-border: #dbe7ff;
+      --good-bg: #eafff1;
+      --good-border: #c6f6d5;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color:var(--ink);
+      background:
+        radial-gradient(900px 500px at 15% -10%, #d9e6ffaa, transparent 60%),
+        radial-gradient(900px 500px at 85% 110%, #d1fff3aa, transparent 60%),
+        var(--bg);
+      display:grid; place-items:center;
+      padding:clamp(16px,4vw,28px);
+    }
+    .card{
+      width:min(1000px,100%);
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:22px;
+      padding:clamp(18px,2.2vw,26px);
+      box-shadow:0 10px 30px rgba(14,30,64,.08);
+    }
+    header{
+      display:grid; grid-template-columns:1fr auto; gap:12px; align-items:end;
+    }
+    h1{ margin:0; font-size:clamp(22px,3.4vw,34px); letter-spacing:.2px; }
+    .sub{ color:var(--muted); font-size:14px; text-align:right; }
+    @media (max-width:640px){ header{grid-template-columns:1fr} .sub{text-align:left} }
+
+    /* Layout principal: Barra + Restante destacados */
+    .top{
+      display:grid; grid-template-columns: 1.2fr .8fr; gap:18px; margin-top:16px;
+    }
+    @media (max-width:840px){ .top{ grid-template-columns:1fr; } }
+
+    .progress-wrap{
+      background:#f1f5ff;
+      border:1px solid #e2e8ff;
+      border-radius:16px; padding:8px;
+    }
+    .bar{
+      height:26px; width:0%;
+      border-radius:12px;
+      background:linear-gradient(90deg,var(--accent-a),var(--accent-b));
+      background-size:200% 100%; animation:sheen 6s linear infinite;
+      transition:width .25s ease;
+      position:relative; overflow:hidden;
+    }
+    .bar::after{ content:""; position:absolute; inset:0;
+      background:linear-gradient(to bottom, rgba(255,255,255,.6), transparent 60%);
+      border-radius:inherit; pointer-events:none;
+    }
+    @keyframes sheen {
+      0%{background-position:0% 0} 50%{background-position:100% 0} 100%{background-position:0% 0}
+    }
+    .label{
+      margin-top:8px; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+      font-size:14px; color:var(--muted);
+    }
+    .label strong{ color:var(--ink) }
+    .chip{
+      display:inline-flex; align-items:center; gap:6px;
+      padding:6px 10px; border-radius:999px; border:1px solid var(--chip-border); background:var(--chip-bg);
+      font-size:12px; color:#1e293b;
+    }
+
+    /* Bloque destacado de restante */
+    .hero{
+      background:var(--good-bg);
+      border:1px solid var(--good-border);
+      border-radius:16px; padding:14px;
+      display:grid; gap:6px;
+    }
+    .hero .k{ color:#065f46; font-size:13px; }
+    .hero .v{
+      font-size: clamp(28px, 6vw, 40px);
+      font-weight:700;
+      letter-spacing:.5px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .done .bar{ background:linear-gradient(90deg,var(--accent-c),#c0f2c6) }
+    .done .hero{ background:#e9ffef; border-color:#bdeecb }
+
+    /* Stats principales (solo las 4 que quieres) */
+    .stats{
+      margin-top:18px;
+      display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap:12px;
+    }
+    .stat{
+      background:#fcfdff; border:1px solid var(--border); border-radius:14px; padding:12px;
+    }
+    .k{ color:var(--muted); font-size:12px; margin-bottom:6px }
+    .v{ font-size: clamp(18px,2.6vw,22px); font-variant-numeric: tabular-nums }
+    @media (max-width:1000px){ .stats{ grid-template-columns: repeat(2, minmax(0,1fr)); } }
+    @media (max-width:640px){ .stats{ grid-template-columns: 1fr; } }
+
+    footer{ margin-top:14px; color:var(--muted); font-size:12px }
+  </style>
+</head>
+<body>
+  <main class="card" role="region" aria-labelledby="title">
+    <header>
+      <h1 id="title">Fin de resicencia COT MS</h1>
+      <div class="sub" id="now"></div>
+    </header>
+
+    <section class="top">
+      <div>
+        <div class="progress-wrap" aria-labelledby="progress-label">
+          <div id="bar" class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-describedby="progress-label"></div>
+        </div>
+        <div class="label" id="progress-label">
+          <div><strong id="pct">0.0000%</strong> del periodo completado</div>
+          <div class="chip">Inicio: <span id="start" style="margin-left:6px"></span></div>
+          <div class="chip">Fin: <span id="end" style="margin-left:6px"></span></div>
+          <div id="badge" class="chip" style="display:none">🎉 ¡Completado!</div>
+        </div>
+      </div>
+      <div class="hero">
+        <div class="k">Tiempo restante</div>
+        <div class="v" id="left">—</div>
+        <div class="k">≈ <span id="left-weeks">—</span> semanas · ≈ <span id="left-months">—</span> meses</div>
+      </div>
+    </section>
+
+    <section class="stats" aria-label="Estadísticas principales">
+      <div class="stat">
+        <div class="k">Inicio</div>
+        <div class="v" id="start-stat">—</div>
+      </div>
+      <div class="stat">
+        <div class="k">Fin</div>
+        <div class="v" id="end-stat">—</div>
+      </div>
+      <div class="stat">
+        <div class="k">Transcurrido</div>
+        <div class="v" id="elapsed">—</div>
+      </div>
+      <div class="stat">
+        <div class="k">Duración total</div>
+        <div class="v" id="total">—</div>
+      </div>
+    </section>
+
+    <footer>
+      <div>Se actualiza en tiempo real con la hora de tu dispositivo.</div>
+    </footer>
+  </main>
+
+  <script>
+    // Periodo fijo (hora local del visitante). Mes en JS empieza en 0 -> julio = 6
+    const START = new Date(2021, 6, 20, 0, 0, 0, 0);
+    const END   = new Date(2026, 6, 20, 0, 0, 0, 0);
+
+    // Constantes y formateadores
+    const DAY_MS = 86400000;
+    const AVG_MONTH_MS = 365.2425/12 * DAY_MS; // 30.44 días aprox
+    const nfPct = new Intl.NumberFormat('es-ES', { maximumFractionDigits: 4, minimumFractionDigits: 4 });
+    const nfInt = new Intl.NumberFormat('es-ES');
+    const fmtDate = new Intl.DateTimeFormat('es-ES', { dateStyle: 'long' });
+
+    // Utilidades
+    const clamp = (x, min, max)=>Math.min(max, Math.max(min, x));
+    function fmtDHMS(ms){
+      const sign = ms < 0 ? "-" : "";
+      ms = Math.abs(ms);
+      const s = Math.floor(ms/1000);
+      const d = Math.floor(s/86400);
+      const h = Math.floor((s%86400)/3600);
+      const m = Math.floor((s%3600)/60);
+      const sec = s%60;
+      return `${sign}${nfInt.format(d)} d · ${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(sec).padStart(2,'0')}`;
+    }
+    function fmtElapsed(ms){
+      ms = Math.max(0, ms);
+      const s = Math.floor(ms/1000);
+      const d = Math.floor(s/86400);
+      const h = Math.floor((s%86400)/3600);
+      return `${nfInt.format(d)} días y ${nfInt.format(h)} h`;
+    }
+
+    // Precalcular fijos
+    const TOTAL_MS = Math.max(0, END - START);
+    const TOTAL_DAYS = Math.round(TOTAL_MS / DAY_MS);
+
+    // Estáticos (se rellenan una vez)
+    document.getElementById('start').textContent = fmtDate.format(START);
+    document.getElementById('end').textContent = fmtDate.format(END);
+    document.getElementById('start-stat').textContent = fmtDate.format(START);
+    document.getElementById('end-stat').textContent = fmtDate.format(END);
+    document.getElementById('total').textContent = `${nfInt.format(TOTAL_DAYS)} días`;
+
+    function update(){
+      const now = new Date();
+      document.getElementById('now').textContent = now.toLocaleString('es-ES', { timeZoneName: 'short' });
+
+      const passedMs = clamp(now - START, 0, TOTAL_MS);
+      const leftMs = clamp(END - now, -TOTAL_MS, TOTAL_MS); // puede ser negativo tras el fin
+      const pct = clamp((passedMs / TOTAL_MS) * 100, 0, 100);
+
+      // Barra y porcentaje
+      const bar = document.getElementById('bar');
+      bar.style.width = pct + '%';
+      bar.setAttribute('aria-valuenow', pct.toFixed(4));
+      document.getElementById('pct').textContent = nfPct.format(pct) + '%';
+
+      // Destacado restante
+      document.getElementById('left').textContent = fmtDHMS(leftMs);
+      document.getElementById('left-weeks').textContent = nfInt.format(Math.max(0, Math.round(leftMs / (7*DAY_MS))));
+      document.getElementById('left-months').textContent = nfInt.format(Math.max(0, Math.round(leftMs / AVG_MONTH_MS)));
+
+      // Estadísticas base
+      document.getElementById('elapsed').textContent = fmtElapsed(passedMs);
+
+      // Estado de finalización
+      const badge = document.getElementById('badge');
+      if (pct >= 100){
+        document.querySelector('main').classList.add('done');
+        badge.style.display = 'inline-flex';
+      } else {
+        document.querySelector('main').classList.remove('done');
+        badge.style.display = 'none';
+      }
+    }
+    update();
+    setInterval(update, 1000);
+  </script>
+</body>
+</html>
