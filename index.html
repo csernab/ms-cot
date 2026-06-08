@@ -4,246 +4,1101 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Fin de residencia COT MS</title>
-  <meta name="description" content="Progreso desde el 20/07/2021 hasta el 20/07/2026" />
+  <meta name="description" content="Cuenta atrás hacia el último día de hospital y el fin de residencia en COT." />
+  <meta name="theme-color" content="#f6f2ea" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23f6f2ea'/%3E%3Cpath d='M18 34h28M32 20v28' stroke='%23357a63' stroke-width='8' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='32' r='24' fill='none' stroke='%23b55461' stroke-width='6'/%3E%3C/svg%3E" />
   <style>
-    :root{
-      --bg: #f7f9fc;
-      --card: #ffffff;
-      --ink: #0f172a;
-      --muted: #64748b;
-      --border: #e5e9f2;
-      --accent-a: #7aa2ff;
-      --accent-b: #a0e9e5;
-      --accent-c: #78d69e;
-      --chip-bg: #eef4ff;
-      --chip-border: #dbe7ff;
-      --good-bg: #eafff1;
-      --good-border: #c6f6d5;
+    :root {
+      color-scheme: light;
+      --paper: #f6f2ea;
+      --ink: #1d2730;
+      --soft-ink: #59636c;
+      --line: #ded7cb;
+      --panel: #fffdf8;
+      --panel-2: #eef5f0;
+      --green: #357a63;
+      --green-deep: #1f5d4b;
+      --rose: #b55461;
+      --amber: #c58632;
+      --blue: #416f9f;
+      --shadow: 0 22px 60px rgba(60, 46, 29, .12);
+      --contract-pct: 0;
+      --hospital-pct: 0;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      color:var(--ink);
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-height: 100%;
+    }
+
+    body {
+      min-height: 100%;
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--ink);
       background:
-        radial-gradient(900px 500px at 15% -10%, #d9e6ffaa, transparent 60%),
-        radial-gradient(900px 500px at 85% 110%, #d1fff3aa, transparent 60%),
-        var(--bg);
-      display:grid; place-items:center;
-      padding:clamp(16px,4vw,28px);
-    }
-    .card{
-      width:min(1000px,100%);
-      background:var(--card);
-      border:1px solid var(--border);
-      border-radius:22px;
-      padding:clamp(18px,2.2vw,26px);
-      box-shadow:0 10px 30px rgba(14,30,64,.08);
-    }
-    header{
-      display:grid; grid-template-columns:1fr auto; gap:12px; align-items:end;
-    }
-    h1{ margin:0; font-size:clamp(22px,3.4vw,34px); letter-spacing:.2px; }
-    .sub{ color:var(--muted); font-size:14px; text-align:right; }
-    @media (max-width:640px){ header{grid-template-columns:1fr} .sub{text-align:left} }
-
-    /* Layout principal: Barra + Restante destacados */
-    .top{
-      display:grid; grid-template-columns: 1.2fr .8fr; gap:18px; margin-top:16px;
-    }
-    @media (max-width:840px){ .top{ grid-template-columns:1fr; } }
-
-    .progress-wrap{
-      background:#f1f5ff;
-      border:1px solid #e2e8ff;
-      border-radius:16px; padding:8px;
-    }
-    .bar{
-      height:26px; width:0%;
-      border-radius:12px;
-      background:linear-gradient(90deg,var(--accent-a),var(--accent-b));
-      background-size:200% 100%; animation:sheen 6s linear infinite;
-      transition:width .25s ease;
-      position:relative; overflow:hidden;
-    }
-    .bar::after{ content:""; position:absolute; inset:0;
-      background:linear-gradient(to bottom, rgba(255,255,255,.6), transparent 60%);
-      border-radius:inherit; pointer-events:none;
-    }
-    @keyframes sheen {
-      0%{background-position:0% 0} 50%{background-position:100% 0} 100%{background-position:0% 0}
-    }
-    .label{
-      margin-top:8px; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
-      font-size:14px; color:var(--muted);
-    }
-    .label strong{ color:var(--ink) }
-    .chip{
-      display:inline-flex; align-items:center; gap:6px;
-      padding:6px 10px; border-radius:999px; border:1px solid var(--chip-border); background:var(--chip-bg);
-      font-size:12px; color:#1e293b;
+        linear-gradient(135deg, rgba(255, 255, 255, .72), rgba(255, 255, 255, 0) 42%),
+        linear-gradient(155deg, #f6f2ea 0%, #f8f3e6 45%, #eaf2f1 100%);
+      padding: clamp(14px, 3.5vw, 34px);
     }
 
-    /* Bloque destacado de restante */
-    .hero{
-      background:var(--good-bg);
-      border:1px solid var(--good-border);
-      border-radius:16px; padding:14px;
-      display:grid; gap:6px;
+    main {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+      display: grid;
+      gap: 16px;
     }
-    .hero .k{ color:#065f46; font-size:13px; }
-    .hero .v{
-      font-size: clamp(28px, 6vw, 40px);
-      font-weight:700;
-      letter-spacing:.5px;
+
+    .shell {
+      overflow: hidden;
+      border: 1px solid rgba(99, 84, 61, .2);
+      border-radius: 8px;
+      background: rgba(255, 253, 248, .86);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(300px, .95fr);
+      gap: clamp(18px, 4vw, 42px);
+      align-items: stretch;
+      padding: clamp(18px, 4vw, 46px);
+    }
+
+    .intro {
+      display: grid;
+      align-content: space-between;
+      gap: 26px;
+      min-height: 370px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(53, 122, 99, .28);
+      border-radius: 999px;
+      background: #eef5f0;
+      color: var(--green-deep);
+      padding: 7px 11px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .pulse {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 5px rgba(53, 122, 99, .14);
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 15px 0 0;
+      font-size: clamp(35px, 8vw, 84px);
+      line-height: .92;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 620px;
+      margin: 18px 0 0;
+      color: var(--soft-ink);
+      font-size: clamp(16px, 2vw, 20px);
+      line-height: 1.45;
+    }
+
+    .countdown {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .deadline-card,
+    .stat,
+    .guard,
+    .milestone {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .64);
+    }
+
+    .deadline-card {
+      position: relative;
+      min-height: 126px;
+      padding: 14px;
+      display: grid;
+      align-content: space-between;
+      gap: 10px;
+      overflow: hidden;
+    }
+
+    .deadline-card::after {
+      content: "";
+      position: absolute;
+      width: 92px;
+      height: 92px;
+      right: -34px;
+      bottom: -42px;
+      border-radius: 50%;
+      background: rgba(53, 122, 99, .12);
+      pointer-events: none;
+    }
+
+    .deadline-card.hospital-deadline {
+      border-color: rgba(181, 84, 97, .24);
+      background: #fff8f7;
+    }
+
+    .deadline-card.hospital-deadline::after {
+      background: rgba(181, 84, 97, .14);
+    }
+
+    .deadline-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      color: var(--soft-ink);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    .deadline-date {
+      color: var(--ink);
+      font-size: 11px;
+      white-space: nowrap;
+    }
+
+    .deadline-days {
+      display: flex;
+      align-items: baseline;
+      gap: 7px;
+    }
+
+    .deadline-days strong {
+      font-size: clamp(44px, 8vw, 72px);
+      line-height: .95;
       font-variant-numeric: tabular-nums;
     }
 
-    .done .bar{ background:linear-gradient(90deg,var(--accent-c),#c0f2c6) }
-    .done .hero{ background:#e9ffef; border-color:#bdeecb }
-
-    /* Stats principales (solo las 4 que quieres) */
-    .stats{
-      margin-top:18px;
-      display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap:12px;
+    .deadline-days span {
+      color: var(--soft-ink);
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .06em;
     }
-    .stat{
-      background:#fcfdff; border:1px solid var(--border); border-radius:14px; padding:12px;
-    }
-    .k{ color:var(--muted); font-size:12px; margin-bottom:6px }
-    .v{ font-size: clamp(18px,2.6vw,22px); font-variant-numeric: tabular-nums }
-    @media (max-width:1000px){ .stats{ grid-template-columns: repeat(2, minmax(0,1fr)); } }
-    @media (max-width:640px){ .stats{ grid-template-columns: 1fr; } }
 
-    footer{ margin-top:14px; color:var(--muted); font-size:12px }
+    .deadline-sub {
+      color: var(--soft-ink);
+      font-size: 13px;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .stat span,
+    .guard small,
+    .milestone small,
+    .date-row span {
+      color: var(--soft-ink);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    .visual {
+      position: relative;
+      display: grid;
+      gap: 14px;
+      align-content: stretch;
+    }
+
+    .progress-card {
+      position: relative;
+      display: grid;
+      min-height: 286px;
+      align-content: center;
+      gap: 24px;
+      border: 1px solid rgba(53, 122, 99, .18);
+      border-radius: 8px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, .8), rgba(255, 255, 255, .42)),
+        repeating-linear-gradient(90deg, rgba(53, 122, 99, .08) 0 1px, transparent 1px 24px);
+      padding: clamp(16px, 3vw, 26px);
+      overflow: hidden;
+    }
+
+    .progress-card::before {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      right: -88px;
+      top: -82px;
+      border-radius: 50%;
+      background: rgba(53, 122, 99, .1);
+      pointer-events: none;
+    }
+
+    .progress-main {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 10px;
+    }
+
+    .progress-kicker,
+    .progress-note span {
+      color: var(--soft-ink);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    .progress-number {
+      font-size: clamp(58px, 10vw, 104px);
+      font-weight: 900;
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .progress-number small {
+      color: var(--soft-ink);
+      font-size: .22em;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    .hero-progress {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 10px;
+      padding-top: 8px;
+    }
+
+    .hero-rail {
+      position: relative;
+      height: 34px;
+      border: 1px solid rgba(53, 122, 99, .22);
+      border-radius: 999px;
+      background: rgba(89, 99, 108, .12);
+      overflow: hidden;
+      box-shadow: inset 0 2px 7px rgba(60, 46, 29, .08);
+    }
+
+    .hero-fill {
+      width: calc(var(--contract-pct) * 1%);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--blue), var(--green) 58%, var(--amber));
+      transition: width .45s ease;
+    }
+
+    .hero-fill::after {
+      content: "";
+      display: block;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(255, 255, 255, .42), rgba(255, 255, 255, 0) 62%);
+    }
+
+    .hero-pin {
+      position: absolute;
+      top: 20px;
+      left: calc(var(--pos) * 1%);
+      transform: translateX(-50%);
+      width: 18px;
+      height: 18px;
+      font-size: 0;
+      z-index: 2;
+    }
+
+    .hero-pin.hospital {
+      top: 10px;
+      transform: translateX(-100%);
+    }
+
+    .hero-pin::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      width: 12px;
+      height: 12px;
+      border: 3px solid var(--panel);
+      border-radius: 50%;
+      background: var(--rose);
+      box-shadow: 0 0 0 1px rgba(181, 84, 97, .28);
+    }
+
+    .hero-pin.end {
+      top: 26px;
+      left: 100%;
+      transform: translateX(-100%);
+    }
+
+    .hero-pin.end::after {
+      background: var(--green);
+      box-shadow: 0 0 0 1px rgba(53, 122, 99, .28);
+    }
+
+    .hero-scale-labels {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      color: var(--soft-ink);
+      font-size: 10px;
+      font-weight: 900;
+      line-height: 1.15;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    .hero-scale-labels span:nth-child(2) {
+      text-align: center;
+    }
+
+    .hero-scale-labels span:nth-child(3) {
+      text-align: right;
+    }
+
+    .hero-scale-labels b {
+      color: var(--ink);
+    }
+
+    .progress-note {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: end;
+    }
+
+    .progress-note strong {
+      font-size: clamp(19px, 2.8vw, 28px);
+      line-height: 1.05;
+    }
+
+    .progress-note em {
+      color: #8a5b1f;
+      font-size: clamp(24px, 4vw, 40px);
+      font-style: normal;
+      font-weight: 900;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .legend {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .legend-item {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 11px;
+      background: rgba(255, 255, 255, .62);
+      font-size: 14px;
+    }
+
+    .legend-item b {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 5px;
+      font-size: 13px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--green);
+    }
+
+    .dot.hospital {
+      background: var(--rose);
+    }
+
+    .dates {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      border-top: 1px solid var(--line);
+      background: rgba(238, 245, 240, .6);
+    }
+
+    .date-row {
+      padding: 16px clamp(14px, 3vw, 24px);
+      border-right: 1px solid var(--line);
+      display: grid;
+      gap: 6px;
+    }
+
+    .date-row:last-child {
+      border-right: 0;
+    }
+
+    .date-row strong {
+      font-size: clamp(16px, 2.2vw, 21px);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: minmax(0, .86fr) minmax(320px, 1.14fr);
+      gap: 16px;
+      align-items: start;
+    }
+
+    .panel {
+      border: 1px solid rgba(99, 84, 61, .2);
+      border-radius: 8px;
+      background: rgba(255, 253, 248, .78);
+      padding: clamp(16px, 3vw, 24px);
+      box-shadow: 0 14px 36px rgba(60, 46, 29, .08);
+    }
+
+    .panel h2 {
+      margin: 0 0 14px;
+      font-size: clamp(20px, 2.6vw, 28px);
+      letter-spacing: 0;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .stat {
+      min-height: 94px;
+      padding: 13px;
+      display: grid;
+      align-content: space-between;
+      gap: 8px;
+    }
+
+    .stat strong {
+      font-size: clamp(23px, 3vw, 34px);
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .stat.accent {
+      background: var(--panel-2);
+      border-color: rgba(53, 122, 99, .22);
+    }
+
+    .guard-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .guard-count {
+      min-width: 78px;
+      border: 1px solid rgba(181, 84, 97, .28);
+      border-radius: 8px;
+      background: #fff4f1;
+      color: #873544;
+      padding: 9px 10px;
+      text-align: center;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .guard-count span {
+      display: block;
+      color: #873544;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    .guards {
+      display: grid;
+      gap: 10px;
+    }
+
+    .guard {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 12px;
+      align-items: center;
+      padding: 12px;
+    }
+
+    .guard.next {
+      border-color: rgba(181, 84, 97, .34);
+      background: #fff8f3;
+    }
+
+    .guard.active {
+      border-color: rgba(197, 134, 50, .42);
+      background: #fff9e8;
+    }
+
+    .guard .day {
+      width: 54px;
+      height: 54px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      background: #f2ece0;
+      color: var(--ink);
+      font-size: 24px;
+      font-weight: 900;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .guard.next .day {
+      background: #f7dde1;
+      color: #873544;
+    }
+
+    .guard.active .day {
+      background: #ffe2a6;
+      color: #754510;
+    }
+
+    .guard strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 16px;
+    }
+
+    .guard em {
+      justify-self: end;
+      border-radius: 999px;
+      border: 1px solid rgba(89, 99, 108, .24);
+      padding: 6px 9px;
+      color: var(--soft-ink);
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      white-space: nowrap;
+    }
+
+    .empty {
+      border: 1px dashed rgba(53, 122, 99, .38);
+      border-radius: 8px;
+      background: rgba(238, 245, 240, .72);
+      padding: 18px;
+      color: var(--green-deep);
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .timeline {
+      position: relative;
+      margin-top: 15px;
+      padding-top: 58px;
+    }
+
+    .timeline-labels {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 10px;
+      color: var(--soft-ink);
+      font-size: 10px;
+      font-weight: 800;
+      line-height: 1.15;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    .timeline-labels span:nth-child(2) {
+      text-align: center;
+    }
+
+    .timeline-labels span:nth-child(3) {
+      text-align: right;
+    }
+
+    .timeline-labels b {
+      color: var(--ink);
+    }
+
+    .track {
+      position: relative;
+      height: 12px;
+      border-radius: 999px;
+      background: rgba(89, 99, 108, .14);
+      overflow: hidden;
+    }
+
+    .track span {
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: calc(var(--contract-pct) * 1%);
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--blue), var(--green) 58%, var(--amber));
+    }
+
+    .tick {
+      position: absolute;
+      top: 6px;
+      left: calc(var(--pos) * 1%);
+      transform: translateX(-50%);
+      display: grid;
+      justify-items: center;
+      gap: 6px;
+      width: auto;
+      color: var(--soft-ink);
+      font-size: 11px;
+      font-weight: 800;
+      line-height: 1.15;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    .tick span {
+      display: none;
+    }
+
+    .tick.start {
+      transform: none;
+      justify-items: start;
+      text-align: left;
+    }
+
+    .tick.hospital {
+      top: 34px;
+      transform: translateX(-100%);
+      justify-items: end;
+      text-align: right;
+    }
+
+    .tick.end {
+      top: 8px;
+      transform: translateX(-100%);
+      justify-items: end;
+      text-align: right;
+    }
+
+    .tick::before {
+      content: "";
+      width: 12px;
+      height: 12px;
+      border: 3px solid var(--panel);
+      border-radius: 50%;
+      background: var(--blue);
+      box-shadow: 0 0 0 1px rgba(65, 111, 159, .26);
+    }
+
+    .tick.hospital::before {
+      background: var(--rose);
+      box-shadow: 0 0 0 1px rgba(181, 84, 97, .26);
+    }
+
+    .tick.end::before {
+      background: var(--green);
+      box-shadow: 0 0 0 1px rgba(53, 122, 99, .26);
+    }
+
+    footer {
+      color: var(--soft-ink);
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .done .pulse,
+    .done .dot,
+    .done .track span {
+      background: var(--green);
+    }
+
+    @media (max-width: 860px) {
+      body {
+        padding: 0;
+        background: linear-gradient(150deg, #f9f4e8 0%, #eef5f0 100%);
+      }
+
+      main {
+        gap: 0;
+      }
+
+      .shell,
+      .panel {
+        border-right: 0;
+        border-left: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      .hero,
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .intro {
+        min-height: auto;
+      }
+
+      .dates {
+        grid-template-columns: 1fr;
+      }
+
+      .date-row {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .date-row:last-child {
+        border-bottom: 0;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hero,
+      .panel {
+        padding: 16px;
+      }
+
+      .stats,
+      .legend {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .countdown {
+        grid-template-columns: 1fr;
+      }
+
+      .deadline-card {
+        min-height: 116px;
+      }
+
+      .progress-card {
+        min-height: 250px;
+      }
+
+      .guard {
+        grid-template-columns: auto 1fr;
+      }
+
+      .guard em {
+        grid-column: 1 / -1;
+        justify-self: start;
+      }
+
+      .tick {
+        font-size: 10px;
+      }
+
+    }
   </style>
 </head>
 <body>
-  <main class="card" role="region" aria-labelledby="title">
-    <header>
-      <h1 id="title">Fin de resicencia COT MS</h1>
-      <div class="sub" id="now"></div>
-    </header>
-
-    <section class="top">
-      <div>
-        <div class="progress-wrap" aria-labelledby="progress-label">
-          <div id="bar" class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-describedby="progress-label"></div>
-        </div>
-        <div class="label" id="progress-label">
-          <div><strong id="pct">0.0000%</strong> del periodo completado</div>
-          <div class="chip">Inicio: <span id="start" style="margin-left:6px"></span></div>
-          <div class="chip">Fin: <span id="end" style="margin-left:6px"></span></div>
-          <div id="badge" class="chip" style="display:none">🎉 ¡Completado!</div>
-        </div>
-      </div>
+  <main id="app" aria-live="polite">
+    <section class="shell">
       <div class="hero">
-        <div class="k">Tiempo restante</div>
-        <div class="v" id="left">—</div>
-        <div class="k">≈ <span id="left-weeks">—</span> semanas · ≈ <span id="left-months">—</span> meses</div>
+        <div class="intro">
+          <div>
+            <div class="eyebrow"><span class="pulse" aria-hidden="true"></span><span id="status-label">Recta final</span></div>
+            <h1>Fin de residencia COT MS</h1>
+            <p class="lead" id="lead">Cuenta atrás hasta el último día de hospital y hasta el cierre oficial del contrato.</p>
+          </div>
+
+          <div class="countdown" aria-label="Días restantes hasta los dos hitos">
+            <div class="deadline-card hospital-deadline">
+              <div class="deadline-label">
+                <span>Dejar hospital</span>
+                <span class="deadline-date">11 jul</span>
+              </div>
+              <div class="deadline-days">
+                <strong id="hospital-days-hero">--</strong>
+                <span>días</span>
+              </div>
+              <div class="deadline-sub" id="hospital-time-hero">--</div>
+            </div>
+            <div class="deadline-card contract-deadline">
+              <div class="deadline-label">
+                <span>Fin contrato</span>
+                <span class="deadline-date">20 jul</span>
+              </div>
+              <div class="deadline-days">
+                <strong id="contract-days-hero">--</strong>
+                <span>días</span>
+              </div>
+              <div class="deadline-sub" id="contract-time-hero">--</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="visual">
+          <div class="progress-card">
+            <div class="progress-main">
+              <span class="progress-kicker">Contrato completado</span>
+              <div class="progress-number"><span id="contract-pct-hero">0</span><small>%</small></div>
+            </div>
+
+            <div class="hero-progress">
+              <div class="hero-pin hospital" id="hero-hospital-pin" style="--pos:0">Hospital<br>11 jul</div>
+              <div class="hero-pin end">Fin<br>20 jul</div>
+              <div id="hero-progressbar" class="hero-rail" role="progressbar" aria-label="Progreso hasta el fin de contrato" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <div class="hero-fill"></div>
+              </div>
+              <div class="hero-scale-labels" aria-hidden="true">
+                <span>Inicio<br><b>2021</b></span>
+                <span>Hospital<br><b>11 jul</b></span>
+                <span>Fin<br><b>20 jul</b></span>
+              </div>
+            </div>
+
+            <div class="progress-note">
+              <div>
+                <span>Recta final</span>
+                <strong id="progress-copy">Queda muy poco para cerrar etapa.</strong>
+              </div>
+              <em id="remaining-pct">0%</em>
+            </div>
+          </div>
+
+          <div class="legend">
+            <div class="legend-item">
+              <b><span class="dot hospital" aria-hidden="true"></span>Hospital</b>
+              <span id="hospital-pct-text">0% completado</span>
+            </div>
+            <div class="legend-item">
+              <b><span class="dot" aria-hidden="true"></span>Contrato</b>
+              <span id="contract-pct-text">0% completado</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dates" aria-label="Fechas clave">
+        <div class="date-row">
+          <span>Inicio</span>
+          <strong id="start-date">--</strong>
+        </div>
+        <div class="date-row">
+              <span>Último día de hospital</span>
+          <strong id="hospital-date">--</strong>
+        </div>
+        <div class="date-row">
+          <span>Fin oficial</span>
+          <strong id="contract-date">--</strong>
+        </div>
       </div>
     </section>
 
-    <section class="stats" aria-label="Estadísticas principales">
-      <div class="stat">
-        <div class="k">Inicio</div>
-        <div class="v" id="start-stat">—</div>
+    <section class="grid">
+      <div class="panel">
+        <h2>Progreso</h2>
+        <div class="stats">
+          <div class="stat accent">
+            <span>Para dejar el hospital</span>
+            <strong id="hospital-left">--</strong>
+          </div>
+          <div class="stat">
+            <span>Para terminar contrato</span>
+            <strong id="contract-left">--</strong>
+          </div>
+          <div class="stat">
+            <span>Días vividos</span>
+            <strong id="elapsed-days">--</strong>
+          </div>
+          <div class="stat">
+            <span>Días totales</span>
+            <strong id="total-days">--</strong>
+          </div>
+        </div>
+
+        <div class="timeline" aria-label="Línea temporal">
+          <div class="tick start" style="--pos:0"><span>Inicio<br>2021</span></div>
+          <div class="tick hospital" id="hospital-tick"><span>Hospital<br>11 jul</span></div>
+          <div class="tick end" style="--pos:100"><span>Fin<br>20 jul</span></div>
+          <div class="track"><span></span></div>
+          <div class="timeline-labels" aria-hidden="true">
+            <span>Inicio<br><b>2021</b></span>
+            <span>Hospital<br><b>11 jul</b></span>
+            <span>Fin<br><b>20 jul</b></span>
+          </div>
+        </div>
       </div>
-      <div class="stat">
-        <div class="k">Fin</div>
-        <div class="v" id="end-stat">—</div>
-      </div>
-      <div class="stat">
-        <div class="k">Transcurrido</div>
-        <div class="v" id="elapsed">—</div>
-      </div>
-      <div class="stat">
-        <div class="k">Duración total</div>
-        <div class="v" id="total">—</div>
+
+      <div class="panel">
+        <div class="guard-head">
+          <h2>Guardias de 24 h</h2>
+          <div class="guard-count"><strong id="guards-count">0</strong><span>quedan</span></div>
+        </div>
+        <div class="guards" id="guards-list"></div>
       </div>
     </section>
 
-    <footer>
-      <div>Se actualiza en tiempo real con la hora de tu dispositivo.</div>
-    </footer>
+    <footer id="now">Actualizado con la hora de tu dispositivo.</footer>
   </main>
 
   <script>
-    // Periodo fijo (hora local del visitante). Mes en JS empieza en 0 -> julio = 6
     const START = new Date(2021, 6, 20, 0, 0, 0, 0);
-    const END   = new Date(2026, 6, 20, 0, 0, 0, 0);
+    const LAST_HOSPITAL_DAY = new Date(2026, 6, 11, 23, 59, 59, 999);
+    const CONTRACT_END = new Date(2026, 6, 20, 0, 0, 0, 0);
+    const GUARD_START_HOUR = 8;
+    const GUARD_DURATION_HOURS = 24;
+    const GUARDS = [
+      { date: new Date(2026, 5, 9), label: "9 de junio" },
+      { date: new Date(2026, 5, 12), label: "12 de junio" },
+      { date: new Date(2026, 5, 14), label: "14 de junio" },
+      { date: new Date(2026, 5, 18), label: "18 de junio" },
+      { date: new Date(2026, 6, 7), label: "7 de julio" },
+      { date: new Date(2026, 6, 11), label: "11 de julio" }
+    ].map((guard) => {
+      const start = new Date(guard.date.getFullYear(), guard.date.getMonth(), guard.date.getDate(), GUARD_START_HOUR, 0, 0, 0);
+      const end = new Date(start.getTime() + GUARD_DURATION_HOURS * 60 * 60 * 1000);
+      return { ...guard, start, end };
+    });
 
-    // Constantes y formateadores
-    const DAY_MS = 86400000;
-    const AVG_MONTH_MS = 365.2425/12 * DAY_MS; // 30.44 días aprox
-    const nfPct = new Intl.NumberFormat('es-ES', { maximumFractionDigits: 4, minimumFractionDigits: 4 });
-    const nfInt = new Intl.NumberFormat('es-ES');
-    const fmtDate = new Intl.DateTimeFormat('es-ES', { dateStyle: 'long' });
+    const DAY_MS = 24 * 60 * 60 * 1000;
+    const HOUR_MS = 60 * 60 * 1000;
+    const MINUTE_MS = 60 * 1000;
+    const nf = new Intl.NumberFormat("es-ES");
+    const pctFmt = new Intl.NumberFormat("es-ES", { maximumFractionDigits: 1 });
+    const dateFmt = new Intl.DateTimeFormat("es-ES", { day: "numeric", month: "long", year: "numeric" });
+    const shortDateFmt = new Intl.DateTimeFormat("es-ES", { weekday: "short", day: "numeric", month: "long" });
+    const timeFmt = new Intl.DateTimeFormat("es-ES", { hour: "2-digit", minute: "2-digit" });
 
-    // Utilidades
-    const clamp = (x, min, max)=>Math.min(max, Math.max(min, x));
-    function fmtDHMS(ms){
-      const sign = ms < 0 ? "-" : "";
-      ms = Math.abs(ms);
-      const s = Math.floor(ms/1000);
-      const d = Math.floor(s/86400);
-      const h = Math.floor((s%86400)/3600);
-      const m = Math.floor((s%3600)/60);
-      const sec = s%60;
-      return `${sign}${nfInt.format(d)} d · ${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(sec).padStart(2,'0')}`;
+    const $ = (id) => document.getElementById(id);
+    const app = $("app");
+    const totalMs = CONTRACT_END - START;
+    const hospitalMs = LAST_HOSPITAL_DAY - START;
+
+    $("start-date").textContent = dateFmt.format(START);
+    $("hospital-date").textContent = dateFmt.format(LAST_HOSPITAL_DAY);
+    $("contract-date").textContent = dateFmt.format(CONTRACT_END);
+    $("total-days").textContent = nf.format(Math.ceil(totalMs / DAY_MS));
+    $("hospital-tick").style.setProperty("--pos", String(((LAST_HOSPITAL_DAY - START) / totalMs) * 100));
+    $("hero-hospital-pin").style.setProperty("--pos", String(((LAST_HOSPITAL_DAY - START) / totalMs) * 100));
+
+    function clamp(value, min, max) {
+      return Math.min(max, Math.max(min, value));
     }
-    function fmtElapsed(ms){
-      ms = Math.max(0, ms);
-      const s = Math.floor(ms/1000);
-      const d = Math.floor(s/86400);
-      const h = Math.floor((s%86400)/3600);
-      return `${nfInt.format(d)} días y ${nfInt.format(h)} h`;
+
+    function splitTime(ms) {
+      const safe = Math.max(0, ms);
+      const days = Math.floor(safe / DAY_MS);
+      const hours = Math.floor((safe % DAY_MS) / HOUR_MS);
+      const minutes = Math.floor((safe % HOUR_MS) / MINUTE_MS);
+      const seconds = Math.floor((safe % MINUTE_MS) / 1000);
+      return { days, hours, minutes, seconds };
     }
 
-    // Precalcular fijos
-    const TOTAL_MS = Math.max(0, END - START);
-    const TOTAL_DAYS = Math.round(TOTAL_MS / DAY_MS);
+    function heroTime(ms) {
+      const time = splitTime(ms);
+      return {
+        days: nf.format(time.days),
+        detail: `${String(time.hours).padStart(2, "0")} h · ${String(time.minutes).padStart(2, "0")} min · ${String(time.seconds).padStart(2, "0")} s`
+      };
+    }
 
-    // Estáticos (se rellenan una vez)
-    document.getElementById('start').textContent = fmtDate.format(START);
-    document.getElementById('end').textContent = fmtDate.format(END);
-    document.getElementById('start-stat').textContent = fmtDate.format(START);
-    document.getElementById('end-stat').textContent = fmtDate.format(END);
-    document.getElementById('total').textContent = `${nfInt.format(TOTAL_DAYS)} días`;
+    function compactDays(ms) {
+      if (ms <= 0) return "0 d";
+      const days = Math.floor(ms / DAY_MS);
+      const hours = Math.floor((ms % DAY_MS) / HOUR_MS);
+      if (days <= 0) return `${hours} h`;
+      if (hours <= 0) return `${nf.format(days)} d`;
+      return `${nf.format(days)} d ${hours} h`;
+    }
 
-    function update(){
+    function percent(done, total) {
+      return clamp((done / total) * 100, 0, 100);
+    }
+
+    function renderGuard(guard, index, now) {
+      const isActive = now >= guard.start && now < guard.end;
+      const isNext = index === 0 && !isActive;
+      const distance = isActive ? guard.end - now : guard.start - now;
+      const article = document.createElement("article");
+      article.className = `guard${isNext ? " next" : ""}${isActive ? " active" : ""}`;
+      article.innerHTML = `
+        <div class="day">${guard.date.getDate()}</div>
+        <div>
+          <strong>${shortDateFmt.format(guard.date)}</strong>
+          <small>${timeFmt.format(guard.start)} - ${timeFmt.format(guard.end)}</small>
+        </div>
+        <em>${isActive ? "en curso" : `en ${compactDays(distance)}`}</em>
+      `;
+      return article;
+    }
+
+    function update() {
       const now = new Date();
-      document.getElementById('now').textContent = now.toLocaleString('es-ES', { timeZoneName: 'short' });
+      const contractLeft = CONTRACT_END - now;
+      const hospitalLeft = LAST_HOSPITAL_DAY - now;
+      const elapsed = clamp(now - START, 0, totalMs);
+      const contractPct = percent(elapsed, totalMs);
+      const hospitalPct = percent(clamp(now - START, 0, hospitalMs), hospitalMs);
+      const remainingPct = clamp(100 - contractPct, 0, 100);
+      const hospitalHero = heroTime(hospitalLeft);
+      const contractHero = heroTime(contractLeft);
+      const remainingGuards = GUARDS.filter((guard) => now < guard.end);
 
-      const passedMs = clamp(now - START, 0, TOTAL_MS);
-      const leftMs = clamp(END - now, -TOTAL_MS, TOTAL_MS); // puede ser negativo tras el fin
-      const pct = clamp((passedMs / TOTAL_MS) * 100, 0, 100);
+      document.documentElement.style.setProperty("--contract-pct", contractPct.toFixed(2));
+      document.documentElement.style.setProperty("--hospital-pct", hospitalPct.toFixed(2));
+      $("hero-progressbar").setAttribute("aria-valuenow", contractPct.toFixed(1));
 
-      // Barra y porcentaje
-      const bar = document.getElementById('bar');
-      bar.style.width = pct + '%';
-      bar.setAttribute('aria-valuenow', pct.toFixed(4));
-      document.getElementById('pct').textContent = nfPct.format(pct) + '%';
+      $("hospital-days-hero").textContent = hospitalHero.days;
+      $("hospital-time-hero").textContent = hospitalHero.detail;
+      $("contract-days-hero").textContent = contractHero.days;
+      $("contract-time-hero").textContent = contractHero.detail;
+      $("contract-pct-hero").textContent = pctFmt.format(contractPct);
+      $("remaining-pct").textContent = `${pctFmt.format(remainingPct)}%`;
+      $("progress-copy").textContent = remainingPct <= 0 ? "Contrato completado." : "Queda por completar";
+      $("contract-pct-text").textContent = `${pctFmt.format(contractPct)}% completado`;
+      $("hospital-pct-text").textContent = `${pctFmt.format(hospitalPct)}% completado`;
+      $("hospital-left").textContent = compactDays(hospitalLeft);
+      $("contract-left").textContent = compactDays(contractLeft);
+      $("elapsed-days").textContent = nf.format(Math.floor(elapsed / DAY_MS));
+      $("guards-count").textContent = nf.format(remainingGuards.length);
+      $("now").textContent = `Actualizado: ${now.toLocaleString("es-ES", { timeZoneName: "short" })}`;
 
-      // Destacado restante
-      document.getElementById('left').textContent = fmtDHMS(leftMs);
-      document.getElementById('left-weeks').textContent = nfInt.format(Math.max(0, Math.round(leftMs / (7*DAY_MS))));
-      document.getElementById('left-months').textContent = nfInt.format(Math.max(0, Math.round(leftMs / AVG_MONTH_MS)));
-
-      // Estadísticas base
-      document.getElementById('elapsed').textContent = fmtElapsed(passedMs);
-
-      // Estado de finalización
-      const badge = document.getElementById('badge');
-      if (pct >= 100){
-        document.querySelector('main').classList.add('done');
-        badge.style.display = 'inline-flex';
+      const lead = $("lead");
+      const status = $("status-label");
+      if (contractLeft <= 0) {
+        app.classList.add("done");
+        status.textContent = "Residencia completada";
+        lead.textContent = "Contrato terminado. La cuenta atrás ya puede respirar tranquila.";
+      } else if (hospitalLeft <= 0) {
+        app.classList.remove("done");
+        status.textContent = "Hospital completado";
+        lead.textContent = "El último día de hospital ya ha pasado. Solo queda cerrar oficialmente el contrato.";
       } else {
-        document.querySelector('main').classList.remove('done');
-        badge.style.display = 'none';
+        app.classList.remove("done");
+        status.textContent = "Recta final";
+        lead.textContent = "Cuenta atrás hasta el último día de hospital y hasta el cierre oficial del contrato.";
+      }
+
+      const guardList = $("guards-list");
+      guardList.replaceChildren();
+      if (remainingGuards.length === 0) {
+        const empty = document.createElement("div");
+        empty.className = "empty";
+        empty.textContent = "No quedan guardias pendientes.";
+        guardList.appendChild(empty);
+      } else {
+        remainingGuards.forEach((guard, index) => guardList.appendChild(renderGuard(guard, index, now)));
       }
     }
+
     update();
     setInterval(update, 1000);
   </script>
