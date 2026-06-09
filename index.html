@@ -269,10 +269,11 @@
     }
 
     .progress-number {
-      font-size: clamp(58px, 10vw, 104px);
+      font-size: clamp(42px, 8vw, 76px);
       font-weight: 900;
       line-height: 1;
       font-variant-numeric: tabular-nums;
+      white-space: nowrap;
     }
 
     .progress-number small {
@@ -395,10 +396,11 @@
 
     .progress-note em {
       color: #8a5b1f;
-      font-size: clamp(24px, 4vw, 40px);
+      font-size: clamp(22px, 3.2vw, 30px);
       font-style: normal;
       font-weight: 900;
       font-variant-numeric: tabular-nums;
+      white-space: nowrap;
     }
 
     .legend {
@@ -791,6 +793,10 @@
         min-height: 250px;
       }
 
+      .progress-note {
+        grid-template-columns: 1fr;
+      }
+
       .guard {
         grid-template-columns: auto 1fr;
       }
@@ -973,7 +979,7 @@
     const HOUR_MS = 60 * 60 * 1000;
     const MINUTE_MS = 60 * 1000;
     const nf = new Intl.NumberFormat("es-ES");
-    const pctFmt = new Intl.NumberFormat("es-ES", { maximumFractionDigits: 1 });
+    const pctFmt = new Intl.NumberFormat("es-ES", { minimumFractionDigits: 6, maximumFractionDigits: 6 });
     const dateFmt = new Intl.DateTimeFormat("es-ES", { day: "numeric", month: "long", year: "numeric" });
     const shortDateFmt = new Intl.DateTimeFormat("es-ES", { weekday: "short", day: "numeric", month: "long" });
     const timeFmt = new Intl.DateTimeFormat("es-ES", { hour: "2-digit", minute: "2-digit" });
@@ -1053,9 +1059,9 @@
       const contractHero = heroTime(contractLeft);
       const remainingGuards = GUARDS.filter((guard) => now < guard.end);
 
-      document.documentElement.style.setProperty("--contract-pct", contractPct.toFixed(2));
-      document.documentElement.style.setProperty("--hospital-pct", hospitalPct.toFixed(2));
-      $("hero-progressbar").setAttribute("aria-valuenow", contractPct.toFixed(1));
+      document.documentElement.style.setProperty("--contract-pct", contractPct.toFixed(6));
+      document.documentElement.style.setProperty("--hospital-pct", hospitalPct.toFixed(6));
+      $("hero-progressbar").setAttribute("aria-valuenow", contractPct.toFixed(6));
 
       $("hospital-days-hero").textContent = hospitalHero.days;
       $("hospital-time-hero").textContent = hospitalHero.detail;
